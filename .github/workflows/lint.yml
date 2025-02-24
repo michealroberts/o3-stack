@@ -1,0 +1,24 @@
+name: monorepo/lint
+
+on:
+  # Runs on pull request events:       
+  pull_request: {}
+
+jobs:
+  lint:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        
+    runs-on: ${{ matrix.os }}
+
+    name: Lint Check
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+        
+      - name: "Common Setup"
+        uses: ./.github/actions/common-setup
+
+      - name: Run Lint Check
+        run: bun run lint:all

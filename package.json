@@ -1,0 +1,28 @@
+{
+  "name": "monorepo-ts-starter",
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "knip": "^5.43.6",
+    "sherif": "^1.2.0",
+    "taze": "^18.3.0",
+    "tsup": "^8.3.6",
+    "turbo": "^2.4.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "vitest": "^3.0.4"
+  },
+  "packageManager": "bun@1.2.1",
+  "scripts": {
+    "build:all": "turbo run build",
+    "check:all": "turbo run check",
+    "format:all": "turbo run format",
+    "knip": "knip",
+    "lint:all": "turbo run lint",
+    "sherif": "sherif",
+    "taze": "taze -r",
+    "test:all": "turbo run test"
+  },
+  "workspaces": ["packages/*"]
+}

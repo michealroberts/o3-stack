@@ -1,0 +1,13 @@
+name: 'monorepo/common-setup'
+description: 'Sets up Bun, and installs dependencies.'
+inputs: {}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Setup Bun"
+      uses: oven-sh/setup-bun@v2
+
+    - name: "Install Dependencies"
+      run: bun install
+      shell: bash

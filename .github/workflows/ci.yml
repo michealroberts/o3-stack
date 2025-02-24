@@ -1,0 +1,90 @@
+name: monorepo/ci
+
+on:
+
+  # Allows manual triggering of the workflow:
+  workflow_dispatch: {}
+
+  # Runs on pull request events:       
+  pull_request: {}    
+
+  # Runs on pushes to the main branch:      
+  push:
+    branches:
+      - main 
+    tags:
+      - 'v*.*.*'  # e.g., v1.0.0               
+
+# Define jobs for format, lint, and check using common-steps:
+jobs:
+  check:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        
+    runs-on: ${{ matrix.os }}
+
+    name: Type Check
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+        
+      - name: "Common Setup"
+        uses: ./.github/actions/common-setup
+
+      - name: Run Type Check
+        run: bun run check:all
+
+  format:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        
+    runs-on: ${{ matrix.os }}
+
+    name: Format Check
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+        
+      - name: "Common Setup"
+        uses: ./.github/actions/common-setup
+
+      - name: Run Format Check
+        run: bun run format:all
+
+  lint:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        
+    runs-on: ${{ matrix.os }}
+
+    name: Lint Check
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+        
+      - name: "Common Setup"
+        uses: ./.github/actions/common-setup
+
+      - name: Run Lint Check
+        run: bun run lint:all
+
+  test:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        
+    runs-on: ${{ matrix.os }}
+
+    name: Run Tests
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+        
+      - name: "Common Setup"
+        uses: ./.github/actions/common-setup
+
+      - name: Run Format Check
+        run: bun run test:all

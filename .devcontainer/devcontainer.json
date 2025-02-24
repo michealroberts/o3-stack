@@ -1,0 +1,36 @@
+{
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    // ^ If your devcontainer.json is in a .devcontainer folder,
+    //   set "context" to ".." to build from the project root.
+    //   Otherwise, you can just set it to ".".
+    "target": "development"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "oven.bun-vscode",
+        "ms-vscode.vscode-typescript",
+        "tamasfe.even-better-toml",
+        "ZainChen.json"
+      ]
+    },
+    "recommendations": [
+      "biomejs.biome",
+      "oven.bun-vscode",
+      "ms-vscode.vscode-typescript",
+      "tamasfe.even-better-toml",
+      "ZainChen.json"
+    ],
+    "settings": {
+      "terminal.integrated.defaultProfile.linux": "zsh",
+      "terminal.integrated.profiles.linux": {
+        "zsh": {
+          "path": "zsh"
+        }
+      }
+    }
+  }
+}
