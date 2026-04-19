@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stars",
+  "description": "Top bright stars with astrometry, photometry, and motion.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "./stars.schema.json"
+    },
+    "stars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "IAU proper name of the star, e.g., Sirius."
+          },
+          "alias": {
+            "type": "string",
+            "description": "Bayer designation with Greek letter where applicable (e.g., α Canis Majoris)."
+          },
+          "constellation": {
+            "type": "string",
+            "description": "IAU constellation abbreviation (e.g., Andromeda, Canis Major)."
+          },
+          "RA": {
+            "type": "number",
+            "description": "Right ascension, in decimal degrees (J2000)."
+          },
+          "dec": {
+            "type": "number",
+            "description": "Declination, in decimal degrees (J2000)."
+          },
+          "μRA": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Proper motion in right ascension, in degrees per year."
+          },
+          "μDec": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Proper motion in declination, in degrees per year."
+          },
+          "distance": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Distance, in parsecs."
+          },
+          "parallax": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Parallax, in degrees."
+          },
+          "m": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Apparent magnitude."
+          },
+          "M": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Absolute magnitude."
+          },
+          "class": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Yerkes luminosity class (e.g., V, III, Ib)."
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Morgan-Keenan spectral type (e.g., A1V, G2V)."
+          },
+          "HR": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Harvard Revised (Bright Star) catalog number."
+          },
+          "HD": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Henry Draper catalog number."
+          },
+          "flamsteed": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Flamsteed designation number where available."
+          }
+        },
+        "required": [
+          "name",
+          "alias",
+          "constellation",
+          "RA",
+          "dec",
+          "μRA",
+          "μDec",
+          "m",
+          "M",
+          "distance",
+          "parallax"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "stars"
+  ],
+  "additionalProperties": false
+}
