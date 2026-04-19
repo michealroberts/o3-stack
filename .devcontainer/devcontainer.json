@@ -25,10 +25,10 @@
       "ZainChen.json"
     ],
     "settings": {
-      "terminal.integrated.defaultProfile.linux": "zsh",
+      "terminal.integrated.defaultProfile.linux": "bash",
       "terminal.integrated.profiles.linux": {
-        "zsh": {
-          "path": "zsh"
+        "bash": {
+          "path": "bash"
         }
       }
     }
